@@ -22,11 +22,11 @@ function displayVal() {
   } else {
     value;
   }
-  if (display.innerHTML === "" || typeof value === "number") {
+  if (display.innerHTML === "" || typeof value === "number" || value === ".") {
     display.textContent += value;
-  } else if (typeof value === "string"){
+  } else if (typeof value === "string" && value !== "."){
     display.textContent += " " + value + " ";
-  }
+  } 
 }
 
 function clearCalc() {
