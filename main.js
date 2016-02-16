@@ -1,4 +1,4 @@
-function addListeners() {
+(function addListeners() {
  var buttons =  [].slice.call(document.querySelectorAll(".calButton")),
  clear = document.getElementById('clear'),
  evaluate = document.getElementById('evaluateCalc');
@@ -8,7 +8,7 @@ function addListeners() {
  });
  clear.addEventListener("click", clearCalc);
  evaluate.addEventListener("click", calculate);
-};
+})();
 
 function getVal(e) {
    return this.textContent;
@@ -26,7 +26,7 @@ function displayVal() {
     display.textContent += value;
   } else if (typeof value === "string" && value !== "."){
     display.textContent += " " + value + " ";
-  } 
+  }
 }
 
 function clearCalc() {
@@ -50,5 +50,3 @@ function calculate() {
   document.getElementById('input').innerHTML = '';
   document.getElementById('input').innerHTML = total;
 }
-
-addListeners();
