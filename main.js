@@ -48,5 +48,5 @@ function calculate() {
   }
   clearCalc();
   document.getElementById('input').innerHTML = '';
-  document.getElementById('input').innerHTML = total;
+  document.getElementById('input').innerHTML = total.toFixed(10);
 }
