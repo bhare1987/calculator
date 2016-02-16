@@ -17,10 +17,15 @@ function getVal(e) {
 function displayVal() {
   var display = document.getElementById('input'),
   value = this.textContent;
-  if (display.innerHTML === "") {
-    display.textContent += value;
+  if (Number(value)){
+    value = Number(value);
   } else {
-  display.textContent += " " + value;
+    value;
+  }
+  if (display.innerHTML === "" || typeof value === "number") {
+    display.textContent += value;
+  } else if (typeof value === "string"){
+    display.textContent += " " + value + " ";
   }
 }
 
@@ -31,7 +36,7 @@ function clearCalc() {
 
 function calculate() {
   var calculation = document.getElementById('input').textContent.split(" ");
-  console.log(calculation);
+  console.log(calculation)
 }
 
 addListeners();
