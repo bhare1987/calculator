@@ -35,8 +35,20 @@ function clearCalc() {
 }
 
 function calculate() {
-  var calculation = document.getElementById('input').textContent.split(" ");
-  console.log(calculation)
+  var calculation = document.getElementById('input').textContent.split(" "),
+  total = 0;
+  if (calculation[1] === "X") {
+    total = Number(calculation[0]) * Number(calculation[2]);
+  } else if (calculation[1] === "/") {
+    total = Number(calculation[0]) / Number(calculation[2]);
+  } else if (calculation[1] === "+") {
+    total = Number(calculation[0]) + Number(calculation[2]);
+  } else if (calculation[1] === "-") {
+    total = Number(calculation[0]) - Number(calculation[2]);
+  }
+  clearCalc();
+  document.getElementById('input').innerHTML = '';
+  document.getElementById('input').innerHTML = total;
 }
 
 addListeners();
