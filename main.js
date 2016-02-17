@@ -1,3 +1,5 @@
+var calcString = "";
+
 (function addListeners() {
  var buttons =  [].slice.call(document.querySelectorAll(".calButton")),
  clear = document.getElementById('clear'),
@@ -10,8 +12,13 @@
  evaluate.addEventListener("click", calculate);
 })();
 
-function getVal(e) {
-   return this.textContent;
+function getVal() {
+  var value = "";
+  if (this.textContent === "X") {
+    calcString += "*";
+  } else {
+    calcString += this.textContent;
+  }
 };
 
 function displayVal() {
@@ -32,21 +39,12 @@ function displayVal() {
 function clearCalc() {
   var display = document.getElementById('input');
   display.innerHTML = '';
+  calcString = '';
 }
 
 function calculate() {
-  var calculation = document.getElementById('input').textContent.split(" "),
-  total = 0;
-  if (calculation[1] === "X") {
-    total = Number(calculation[0]) * Number(calculation[2]);
-  } else if (calculation[1] === "/") {
-    total = Number(calculation[0]) / Number(calculation[2]);
-  } else if (calculation[1] === "+") {
-    total = Number(calculation[0]) + Number(calculation[2]);
-  } else if (calculation[1] === "-") {
-    total = Number(calculation[0]) - Number(calculation[2]);
-  }
+  var calculation = eval(calcString);
   clearCalc();
-  document.getElementById('input').innerHTML = '';
-  document.getElementById('input').innerHTML = total;
+  document.getElementById('input').innerHTML = calculation;
+  calcString += calculation;
 }
