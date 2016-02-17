@@ -24,7 +24,7 @@ function getVal() {
 function displayVal() {
   var display = document.getElementById('input'),
   value = this.textContent;
-  if (Number(value)){
+  if (Number(value) || Number(value) === 0){
     value = Number(value);
   } else {
     value;
